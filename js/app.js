@@ -1,7 +1,19 @@
 /*
  * Create a list that holds all of your cards
+ shuffle(cardsArray);
+ closeAll(cardsArray);
  */
+const pickCards= $('.card');
+const cardsArray = Array.from(pickCards);
+console.log(cardsArray);
 
+function shuffClose() {
+shuffle(cardsArray);
+closeAll(cardsArray);
+};
+
+/*
+ */
 
 /*
  * Display the cards on the page
@@ -21,9 +33,17 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
+
+function closeAll(array) {
+  let currentIndex = array.length;
+  while (currentIndex !== 0) {
+    currentIndex -= 1;
+    array[currentIndex].classList.remove("open", "match","show");
+  }
+  return array;
+};
 
 
 /*

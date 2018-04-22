@@ -7,6 +7,7 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
 
@@ -25,12 +26,12 @@
         	<span class="moves">3</span> Moves
 
             <div class="restart">
-        		<i class="fa fa-repeat"></i>
+        		<i onclick="shuffClose()" class="fa fa-repeat"></i>
         	</div>
         </section>
 
         <ul class="deck">
-            <li class="card">
+            <li id="one" class="card">
                 <i class="fa fa-diamond"></i>
             </li>
             <li class="card">
