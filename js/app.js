@@ -3,24 +3,37 @@
  shuffle(cardsArray);
  closeAll(cardsArray);
  */
-const pickCards= $('.card');
-const cardsArray = Array.from(pickCards);
+
+let deck= $('.deck');
+
+let pickCards= $('.card');
+let cardsArray = Array.from(pickCards);
 console.log(cardsArray);
 
-function shuffClose() {
-shuffle(cardsArray);
+// starts startGame() function when page is refreshed
+document.body.onload = startGame();
+
+// it is implemented in html file with onclick function on restart button
+
+function startGame() {
+cardsArray = shuffle(cardsArray);   // shuffles only array (no visual effect)
+  for (var i = 0; i < cardsArray.length; i++){
+    deck.innerHTML = "";      // we delate every card from deck
+      [].forEach.call(cardsArray, function(item) {
+        deck.appendChild(item);   // we append 0 position shuffled array "card" to li
+      });
+  };
 closeAll(cardsArray);
 };
 
-/*
- */
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+function closeAll(array) {
+  let currentIndex = array.length;
+  while (currentIndex !== 0) {
+    currentIndex -= 1;
+    array[currentIndex].classList.remove("open", "match","show");
+  }
+  return array;
+};
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -32,18 +45,34 @@ function shuffle(array) {
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
-    }
+    };
     return array;
-}
-
-function closeAll(array) {
-  let currentIndex = array.length;
-  while (currentIndex !== 0) {
-    currentIndex -= 1;
-    array[currentIndex].classList.remove("open", "match","show");
-  }
-  return array;
 };
+
+
+pickCards.on("click", function () {
+    $( this ).toggleClass( "show");
+    $( this ).toggleClass( "open");
+  });
+
+
+/*
+($('.show').length <= 2 )
+
+$('#main-div .specific-class').length
+otherwise with plain js (from IE8 included) you could simply write
+
+document.querySelectorAll('#main-div .specific-class').length;
+ */
+
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
+
+
 
 
 /*
