@@ -1,13 +1,12 @@
 /*
- * Create a list that holds all of your cards
- shuffle(cardsArray);
- closeAll(cardsArray);
  */
 
-let deck= $('.deck');
-
-let pickCards= $('.card');
-let cardsArray = Array.from(pickCards);
+ let deck = document.getElementById("deckId"); // let deck= $('.deck');
+ console.log(deck);                            // let deck = $("#deckId");
+                                               // let deck = document.getElementsByClassName(".deck");
+                                               // WHY from 4 commands from above works only active one??
+let cards = $('.card');
+let cardsArray = Array.from(cards);
 console.log(cardsArray);
 
 // starts startGame() function when page is refreshed
@@ -17,25 +16,28 @@ document.body.onload = startGame();
 
 function startGame() {
 cardsArray = shuffle(cardsArray);   // shuffles only array (no visual effect)
+console.log(cardsArray);
   for (var i = 0; i < cardsArray.length; i++){
     deck.innerHTML = "";      // we delate every card from deck
-      [].forEach.call(cardsArray, function(item) {
-        deck.appendChild(item);   // we append 0 position shuffled array "card" to li
+      [].forEach.call(cardsArray, function(item) { // we choose i-item from cardsArray
+        deck.appendChild(item);   // we append to shuffled array i -item ("card") as child to deck
       });
   };
 closeAll(cardsArray);
 };
 
-function closeAll(array) {
-  let currentIndex = array.length;
+// Function which closes all cards - upon: page refresh, restart button and "GAME WINNING -> (TO DO)"
+function closeAll(arr) {
+  let currentIndex = arr.length;
   while (currentIndex !== 0) {
     currentIndex -= 1;
-    array[currentIndex].classList.remove("open", "match","show");
+    arr[currentIndex].classList.remove("open", "match","show");
   }
-  return array;
+  return arr;
 };
 
 // Shuffle function from http://stackoverflow.com/a/2450976
+// returns shuffled array
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -50,7 +52,7 @@ function shuffle(array) {
 };
 
 
-pickCards.on("click", function () {
+cards.on("click", function () {
     $( this ).toggleClass( "show");
     $( this ).toggleClass( "open");
   });
