@@ -51,12 +51,49 @@ function shuffle(array) {
     return array;
 };
 
+/*   set up the event listener for a card.
+ If a card is clicked:
+ - display the card's symbol (put this functionality in another function -> openCard that you call from this one)
+ - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) -> push */
 
-cards.on("click", function () {
-    $( this ).toggleClass( "show");
-    $( this ).toggleClass( "open");
-  });
+for ( let i = 0; i <cardsArray.length; i++){
+  cards = cardsArray[i];
+  cards.addEventListener("click", openCard);
+  cards.addEventListener("click", push);
+  cards.addEventListener("click", ifTwoOpen);
+};
 
+ function openCard() {
+  this.classList.toggle("open");
+  this.classList.toggle("show");  // $( this ).toggleClass( "show");
+};
+
+let openedCards = [];   // array for opened cards
+
+function push() {
+  openedCards.push(this);
+  console.log(openedCards);
+  };
+
+function ifTwoOpen() {
+  if (openedCards.length === 2) {
+    if (openedCards[0].innerHTML === openedCards[1].innerHTML) {
+    ifMatch();
+  } else
+    notMatch();
+    openedCards.splice(0, 2);
+    }
+};
+
+function ifMatch() {
+    openedCards[0].classList.add("match");
+    openedCards[1].classList.add("match");
+  };
+
+function notMatch() {
+    openedCards[0].classList.remove("show", "open");
+    openedCards[1].classList.remove("show", "open");
+  };
 
 /*
 ($('.show').length <= 2 )
