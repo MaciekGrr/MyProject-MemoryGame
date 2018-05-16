@@ -75,15 +75,17 @@ function push() {
   console.log(openedCards);
   };
 
-function ifTwoOpen() {
-  if (openedCards.length === 2) {
-    if (openedCards[0].innerHTML === openedCards[1].innerHTML) {
-    ifMatch();
-  } else
-    notMatch();
-    openedCards.splice(0, 2);
-    }
-};
+  function ifTwoOpen() {
+    if (openedCards.length === 2) {
+      if ( (openedCards[0].innerHTML === openedCards[1].innerHTML) &&
+          (openedCards[0] !== openedCards[1]) ) { // to avoid "match" on double clicking same card
+      ifMatch();
+    }};
+    if (openedCards.length === 3) { // to let second card be opened untill we click third one
+      notMatch();
+      openedCards.splice(0, 2);
+      }
+  };
 
 function ifMatch() {
     openedCards[0].classList.add("match");
