@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
-    <meta name="description" content="">
+    <meta name="Memory Game Project" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
@@ -17,13 +17,13 @@
         </header>
 
         <section class="score-panel">
-        	<ul class="stars">
+        	<ul class="stars"  id="stars">
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
+        	<span class="moves"> 3 </span> Moves
 
             <div class="restart">
         		<i onclick="startGame()" class="fa fa-repeat"></i>
@@ -81,6 +81,15 @@
             </li>
         </ul>
     </div>
+
+   <div id="gg" class="win-message">
+     <h2>Congratulations. You won! <i onclick="startGame()" class="fa fa-repeat rpt"></i>  </h2>
+      <div class="congrats">
+      </div>
+
+     <div >
+     </div>
+   </div>
 
     <script src="js/app.js"></script>
 </body>
