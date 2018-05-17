@@ -101,9 +101,21 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    color: gold;   /*  Added color and font size   */
+    font-size: 36px;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
+
+
+.hidden {
+  visibility: hidden; /*  * Style to hide stars   */
+}
+
+.moves {
+  color: red;
+  margin: 0 5px 0 70px;
+  }
