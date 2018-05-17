@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff /* url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -26,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-size: 28px;
 }
 
 h1 {
@@ -63,13 +64,14 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-}
+    }
 
 .deck .card.open {
     transform: rotateY(0);
     background: #02b3e4;
     cursor: default;
-}
+
+   }
 
 .deck .card.show {
     font-size: 33px;
@@ -87,8 +89,8 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+    width: 650px;
+    margin-bottom: 16px;
 }
 
 .score-panel .stars {
@@ -96,12 +98,13 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+
 }
 
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
-    color: gold;   /*  Added color and font size   */
+    color: gold;
     font-size: 36px;
 }
 
@@ -111,11 +114,43 @@ h1 {
 }
 
 
-.hidden {
-  visibility: hidden; /*  * Style to hide stars   */
+.stars .fa {
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
 
 .moves {
   color: red;
   margin: 0 5px 0 70px;
   }
+
+.win-message {
+  z-index: 10;
+  height: 100%;
+  min-height: 740px;
+  background: radial-gradient(gold, green, red);
+      text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 32px;
+  border-radius: 5px;
+  color: blue;
+  position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.rpt {
+cursor: pointer;
+margin-left: 50px;
+}

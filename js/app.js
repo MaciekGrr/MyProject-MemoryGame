@@ -19,6 +19,7 @@ var stars = document.getElementById("stars"); // pick ul "stars"
 var starsLi = stars.children ;
 
 var openedCards = [];
+var gg = document.getElementById("gg");
 
 // shuffles and hides cards when page is refreshed
 document.body.onload = startGame();
@@ -26,9 +27,11 @@ document.body.onload = closeAll(cardsArray);
 
 // shuffles and hides cards when restart button pressed
 function startGame() {
+
 cardsArray = shuffle(cardsArray);
 openedCards = [];
 matchedCards = [];
+gg.classList.add("hidden");  // hides winning screen
      for (var i = 0; i < cardsArray.length; i++){
         deck.innerHTML = ""
         move.innerHTML = "0";  // everytime game starts moves counter set to 0 (visually)
@@ -37,6 +40,7 @@ matchedCards = [];
      for (const cards of cardsArray) {  //  cardsArray.forEach.call(cardsArray, function(item) {  both works
          deck.appendChild(cards); // WHY in console I get: Uncaught TypeError: deck.appendChild is not a function if I use other deck selector than by ID ?
        };
+
                };
 
 // Function which closes all cards - upon: page refresh, restart button and "GAME WINNING -> (TO DO)"
@@ -114,7 +118,7 @@ function ifMatch() {
 var matchedCards = [];
 
 function pushMatchedCards() {
-  matchedCards.push("this");
+  matchedCards.push("match!");
   console.log(matchedCards);
   };
 
@@ -145,15 +149,20 @@ function hideStars() {
 };
 
 function matchCounter() {
- if (matchedCards.length === 1) {
+ if (matchedCards.length === 8) {  // set length to 1 to test, set to 8 to play
    congrats(); };
 };
 
-function congrats () {   /* TO DO  */
-  $(".win-message").text("You won").fadeIn();
-  $(".win-message").classList.add("You won")
+ /* TO DO  */
 
+function congrats () {
+  gg.classList.remove("hidden");
 };
+
+/*  function hide () {
+  gg.classList.add("hidden");
+};
+TO DO  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
