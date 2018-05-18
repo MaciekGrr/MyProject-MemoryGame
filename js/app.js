@@ -16,21 +16,23 @@ let cardsArray = Array.from(cards); //pickes cards and makes array of them. You 
 let move = document.querySelector(".moves"); // pick span "moves"
 
 var stars = document.getElementById("stars"); // pick ul "stars"
-var starsLi = stars.children ;
+var starsLi = stars.children;
+console.log(starsLi);
 
-var openedCards = [];
 var gg = document.getElementById("gg");
 
 // shuffles and hides cards when page is refreshed
+
 document.body.onload = startGame();
 document.body.onload = closeAll(cardsArray);
 
 // shuffles and hides cards when restart button pressed
 function startGame() {
-
 cardsArray = shuffle(cardsArray);
 openedCards = [];
 matchedCards = [];
+startTime();
+showStars();
 gg.classList.add("hidden");  // hides winning screen
      for (var i = 0; i < cardsArray.length; i++){
         deck.innerHTML = ""
@@ -40,7 +42,6 @@ gg.classList.add("hidden");  // hides winning screen
      for (const cards of cardsArray) {  //  cardsArray.forEach.call(cardsArray, function(item) {  both works
          deck.appendChild(cards); // WHY in console I get: Uncaught TypeError: deck.appendChild is not a function if I use other deck selector than by ID ?
        };
-
                };
 
 // Function which closes all cards - upon: page refresh, restart button and "GAME WINNING -> (TO DO)"
@@ -67,9 +68,9 @@ function closeAll(arr) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
       -> movesCounter()
   *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
-      -> TO DO
+      -> congrats()
  *    + on XX moves hide (or maybe change class?) of the star 1, than star 2 and star 3...
-      -> TO DO hideStars
+      -> hideStars ()
       */
 
 
@@ -107,8 +108,6 @@ if (openedCards.length === 3) { // to let second card be opened untill we click 
     }
 };
 
-
-
 function ifMatch() {
     openedCards[0].classList.add("match");
     openedCards[1].classList.add("match");
@@ -137,32 +136,64 @@ move.innerHTML = "0";
  };
 
 function hideStars() {
-  if (moves> 28) {
+   if (moves>32) {
     starsLi[2].classList.add("hidden");
     }
-  if (moves>32) {
+  if (moves>36) {
     starsLi[1].classList.add("hidden");}
     ;
-  if (moves>36) {
+  if (moves>99) {
     starsLi[0].classList.add("hidden");}
     ;
 };
 
+function showStars() {
+ starsLi[0].classList.remove("hidden");
+ starsLi[1].classList.remove("hidden");
+ starsLi[2].classList.remove("hidden"); // to show 3 stars on game start
+};
+
 function matchCounter() {
- if (matchedCards.length === 8) {  // set length to 1 to test, set to 8 to play
-   congrats(); };
+   if (matchedCards.length === 1) {  // set length to 1 to test, set to 8 to play
+   congrats(); }
+};
+
+let min = 0;
+let sec = 0;
+
+function startTime () {
+  setInterval(time,1000);
+  };
+
+function time () {
+    checkTime();
+    sec += 1;
+    if (sec > 59) {
+    sec = 0
+    min += 1;};
+    document.getElementById('sec').innerHTML = checkTime(sec) + "s";
+    document.getElementById('min').innerHTML = checkTime(min) + "m";
+  };
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
 };
 
  /* TO DO  */
-
-function congrats () {
+function congrats () {    /* TO DO  */
   gg.classList.remove("hidden");
+  document.getElementById('mov').innerHTML = moves;
+  for (let sta of starsLi) {
+    document.getElementById('sta').appendChild = sta ;};
+
+  // for (let sta of starsLi) {
+
+//  var starsRating = document.querySelector(".stars").innerHTML;
+//  console.log(stars)
+//  document.getElementById(starsScore).innerHTML = starsRating;
 };
 
-/*  function hide () {
-  gg.classList.add("hidden");
-};
-TO DO  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -184,8 +215,6 @@ function shuffle(array) {
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -193,6 +222,6 @@ function shuffle(array) {
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+ *    increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
