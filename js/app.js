@@ -1,7 +1,8 @@
-/* We use jQuery to pick HTML DOM elements to by short names
-DONE: We need to pick: cards, whole deck, refresh.
-TO DO: stars, moves,
+/*  TO DO:
+- how to take an object from array and print in in congrats menu?
+- how to clear timer after clicking repeat ()
 */
+
 
 let deck = document.getElementById("deckId"); // let deck= $('.deck');
                                             // let deck = $("#deckId");
@@ -31,9 +32,9 @@ function startGame() {
 cardsArray = shuffle(cardsArray);
 openedCards = [];
 matchedCards = [];
-startTime();
 showStars();
-gg.classList.add("hidden");  // hides winning screen
+  startTime();
+gg.classList.add("hidden");  // hides winning screen - hide to test
      for (var i = 0; i < cardsArray.length; i++){
         deck.innerHTML = ""
         move.innerHTML = "0";  // everytime game starts moves counter set to 0 (visually)
@@ -53,26 +54,6 @@ function closeAll(arr) {
   }
   return arr;
 };
-/*   set up the event listener for a card.
- If a card is clicked:
- - display the card's symbol (put this functionality in another function -> openCard that you call from this one)
-     -> openCard() function
- - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
-     -> push () function
- - if the list already has another card, check to see if the two cards match
-     -> ifTwoOpen() function
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
-     -> ifMatch() function
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
-      -> notMatch() function
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
-      -> movesCounter()
-  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
-      -> congrats()
- *    + on XX moves hide (or maybe change class?) of the star 1, than star 2 and star 3...
-      -> hideStars ()
-      */
-
 
 for ( let i = 0; i <cardsArray.length; i++){
   cards = cardsArray[i];
@@ -161,9 +142,17 @@ function matchCounter() {
 let min = 0;
 let sec = 0;
 
-function startTime () {
-  setInterval(time,1000);
-  };
+
+var intId;
+function startTime() {
+  if (intId) {
+    clearInterval(intId);
+  sec = 0;
+  min = 0;
+  }
+  intId = setInterval(time, 1000);
+};
+
 
 function time () {
     checkTime();
@@ -180,14 +169,13 @@ function checkTime(i) {
     return i;
 };
 
- /* TO DO  */
-function congrats () {    /* TO DO  */
+function congrats () {
   gg.classList.remove("hidden");
   document.getElementById('mov').innerHTML = moves;
-  for (let sta of starsLi) {
+  for (let sta of starsLi) {       /* TO DO - how to take an object from array and print in in congrats menu?  */
     document.getElementById('sta').appendChild = sta ;};
 
-  // for (let sta of starsLi) {
+
 
 //  var starsRating = document.querySelector(".stars").innerHTML;
 //  console.log(stars)
@@ -214,14 +202,33 @@ function shuffle(array) {
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
- */
-/*
  * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ *   - display the card's symbol (put this functionality in another function that you call from this one)
+ *   - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+ *   - if the list already has another card, check to see if the two cards match
+ *     + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+ *     + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ *     increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+ *     + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ /*  My comments:
+  set up the event listener for a card.
+  If a card is clicked:
+  - display the card's symbol (put this functionality in another function -> openCard that you call from this one)
+      -> openCard() function
+  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+      -> push () function
+  - if the list already has another card, check to see if the two cards match
+      -> ifTwoOpen() function
+  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+      -> ifMatch() function
+  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+       -> notMatch() function
+  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+       -> movesCounter()
+  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+       -> congrats()
+  *    + on XX moves hide (or maybe change class?) of the star 1, than star 2 and star 3...
+       -> hideStars ()
+       */
