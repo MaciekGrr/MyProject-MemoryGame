@@ -134,14 +134,18 @@ h1 {
   margin: 0 5px 0 50px;
   }
 
+.bold {
+  font-weight: bold;
+}
+
 .win-message {
   position: fixed;
 	top: 0;
 	bottom: 0;
-	left: 30%;
-	right: 30%;
+	left: 20%;
+	right: 20%;
   z-index: 10;
-  width: 40%;
+  width: 60%;
   height: 100%;
   min-height: 740px;
   justify-content: center;
