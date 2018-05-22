@@ -32,8 +32,8 @@ cardsArray = shuffle(cardsArray);
 openedCards = [];
 matchedCards = [];
 showStars();
-  startTime();
-gg.classList.add("hide");  // hides winning screen - hide to test
+startTime();
+gg.classList.remove("show");  
      for (var i = 0; i < cardsArray.length; i++){
         deck.innerHTML = ""
         move.innerHTML = "0";  // everytime game starts moves counter set to 0 (visually)
