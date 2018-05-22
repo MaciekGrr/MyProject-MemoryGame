@@ -17,8 +17,7 @@ let cardsArray = Array.from(cards); //pickes cards and makes array of them. You 
 let move = document.querySelector(".moves"); // pick span "moves"
 
 var stars = document.getElementById("stars"); // pick ul "stars"
-var starsLi = Array.from(stars.children);
-console.log(starsLi);
+var starsLi = stars.children;
 
 var gg = document.getElementById("gg");
 
@@ -28,12 +27,11 @@ document.body.onload = closeAll(cardsArray);
 
 // shuffles and hides cards when restart button pressed
 function startGame() {
+gg.classList.remove("show");
 cardsArray = shuffle(cardsArray);
 openedCards = [];
 matchedCards = [];
-showStars();
 startTime();
-gg.classList.remove("show");  
      for (var i = 0; i < cardsArray.length; i++){
         deck.innerHTML = ""
         move.innerHTML = "0";  // everytime game starts moves counter set to 0 (visually)
@@ -42,7 +40,8 @@ gg.classList.remove("show");
      for (let cards of cardsArray) {  //  cardsArray.forEach.call(cardsArray, function(item) {  both works
          deck.appendChild(cards); //
        };
-               };
+      showStars();
+       };
 
 // Function which closes all cards - upon: page refresh, restart button and "GAME WINNING -> (TO DO)"
 function closeAll(arr) {
@@ -128,23 +127,29 @@ move.innerHTML = "0";
   hideStars();
  };
 
+let starsNo = 3;
+
 // function which hides stars
 function hideStars() {
    if (moves>18) {
     starsLi[2].classList.add("hidden");
+    starsNo = 2;
     }
   if (moves>24) {
-    starsLi[1].classList.add("hidden");}
+    starsLi[1].classList.add("hidden");
+    starsNo = 1;
+    }
     ;
   if (moves>40) {
-    starsLi[0].classList.add("hidden");}
+    starsLi[0].classList.add("hidden");
+    starsNo = 0;}
     ;
 };
 
 function showStars() {
- starsLi[0].classList.remove("hidden");
+ starsLi[2].classList.remove("hidden");
  starsLi[1].classList.remove("hidden");
- starsLi[2].classList.remove("hidden"); // to show 3 stars on game start
+ starsLi[0].classList.remove("hidden"); // to show 3 stars on game start
 };
 
 let min = 0;
@@ -188,8 +193,7 @@ document.getElementById('mov').innerHTML = moves;
   const cgsec = checkTime(sec) + "s";
   document.getElementById('minutes').innerHTML = cgmin;
   document.getElementById('seconds').innerHTML = cgsec;
-  for (let sta of starsLi) {
-    document.getElementById('sta').appendChild(sta) ;};
+  document.getElementById('sta').innerHTML = starsNo +" stars!";
 };
 
 

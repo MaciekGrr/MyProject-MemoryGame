@@ -123,24 +123,17 @@ h1 {
   display: inline-block;
 }
 
-
-.hide {
-  display: none;
-}
-
-.hidden {
+.score-panel .stars li.hidden {
   visibility: hidden;
 }
-.visible {
-  visibility: visible;
-}
+
 
 .bold {
   font-weight: bold;
 }
 
 .win-message {
-  font-size: 36px;
+  font-size: 26px;
   display:none;
   position: fixed;
   top: 0;
@@ -150,7 +143,6 @@ h1 {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
   background: #b3d9ff;
   flex-wrap: wrap;
   padding: 32px;
@@ -170,6 +162,7 @@ h1 {
   display: flex;
 }
 
+
 .rpt {
   cursor: pointer;
   float: right;
@@ -188,6 +181,7 @@ h1 {
   list-style: none;
   display: inline-block;
   color: gold;
+  padding: 5px;
   font-size: 36px;
   display: inline-flex;
   flex-wrap: wrap;
@@ -354,13 +348,9 @@ h1 {
     margin-bottom: 16px;
   }
   .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
     margin: 0 5px 0 0;
   }
   .score-panel .stars li {
-    display: inline-block;
     font-size: 36px;
   }
   .timer {
