@@ -17,7 +17,7 @@ let cardsArray = Array.from(cards); //pickes cards and makes array of them. You 
 let move = document.querySelector(".moves"); // pick span "moves"
 
 var stars = document.getElementById("stars"); // pick ul "stars"
-var starsLi = stars.children;
+var starsLi = Array.from(stars.children);
 console.log(starsLi);
 
 var gg = document.getElementById("gg");
@@ -33,7 +33,7 @@ openedCards = [];
 matchedCards = [];
 showStars();
   startTime();
-gg.classList.add("hidden");  // hides winning screen - hide to test
+gg.classList.add("hide");  // hides winning screen - hide to test
      for (var i = 0; i < cardsArray.length; i++){
         deck.innerHTML = ""
         move.innerHTML = "0";  // everytime game starts moves counter set to 0 (visually)
@@ -104,7 +104,6 @@ var matchedCards = [];
 // add the card to a *list* of "Matched" cards (put this functionality in another function that you call from this one)
 function pushMatchedCards() {
   matchedCards.push("match!"); // when 2 cards match, you push the string "match!" to matchedCards array
-  console.log(matchedCards);
   };
 
 // you count how many cards exactly "match"
@@ -179,17 +178,18 @@ function checkTime(i) {
     return i;
 };
 
+var gg = document.getElementById("gg");
+
 // function which pops up congrats window
 function congrats () {
-  gg.classList.remove("hidden");
-  document.getElementById('mov').innerHTML = moves;
-  for (let sta of starsLi) {       /* TO DO - how to take an object from array and print in in congrats menu?  */
-    document.getElementById('sta').appendChild = sta ;};
-
-
-//  var starsRating = document.querySelector(".stars").innerHTML;
-//  console.log(stars)
-//  document.getElementById(starsScore).innerHTML = starsRating;
+  gg.classList.add("show");
+document.getElementById('mov').innerHTML = moves;
+  const cgmin = checkTime(min) + "m";
+  const cgsec = checkTime(sec) + "s";
+  document.getElementById('minutes').innerHTML = cgmin;
+  document.getElementById('seconds').innerHTML = cgsec;
+  for (let sta of starsLi) {
+    document.getElementById('sta').appendChild(sta) ;};
 };
 
 

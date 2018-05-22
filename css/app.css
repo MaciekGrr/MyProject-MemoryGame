@@ -1,37 +1,37 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #ffffff /* url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+  background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+  font-family: 'Coda', cursive;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.3em;
+    -webkit-margin-after: 0.3em;
 }
 
 /*
@@ -39,48 +39,48 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+  max-width: 640px;
+  min-height: 380px;
+  padding: 10px;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    }
+  height: 75px;
+  width: 75px;
+  margin: 5px;
+  background: #2e3d49;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
-
-   }
+  transform: rotateY(0);
+  background: #02b3e4;
+  cursor: default;
+}
 
 .deck .card.show {
-    font-size: 33px;
+  font-size: 33px;
 }
 
 .deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 33px;
+  cursor: default;
+  background: #02ccba;
+  font-size: 33px;
 }
 
 /*
@@ -88,69 +88,70 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 650px;
-    margin-bottom: 16px;
+  text-align: left;
+  margin-bottom: 16px;
+  font-size: 1.4em;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-    color: gold;
-    font-size: 36px;
+  list-style: none;
+  display: inline-block;
+  color: gold;
 }
 
+.timer {
+  display: inline-block;
+  margin-right: 15px;
+  margin-left: 10px;
+}
+
+.moves {
+  color: red;
+  display: inline-block;
+  margin: 0 15px 0px 25px;
+}
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
+  float: right;
+  cursor: pointer;
+  display: inline-block;
 }
 
 
-.stars .fa {
+.hide {
+  display: none;
 }
 
 .hidden {
   visibility: hidden;
 }
-
 .visible {
   visibility: visible;
 }
-
-.timer {
- margin-left: 50px;
-}
-
-.moves {
-  color: red;
-  margin: 0 5px 0 50px;
-  }
 
 .bold {
   font-weight: bold;
 }
 
 .win-message {
+  font-size: 36px;
+  display:none;
   position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 20%;
-	right: 20%;
+  top: 0;
+  left: 0;
   z-index: 10;
-  width: 60%;
+  width: 100%;
   height: 100%;
-  min-height: 740px;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
-  font-size: 28px;
-  background:  #b3d9ff;
+  background: #b3d9ff;
   flex-wrap: wrap;
   padding: 32px;
   border-radius: 5px;
@@ -163,69 +164,207 @@ h1 {
   -webkit-animation-duration: 4s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
+}
 
+.win-message.show {
+  display: flex;
 }
 
 .rpt {
-cursor: pointer;
-float: right;
+  cursor: pointer;
+  float: right;
 }
 
 .mid {
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   padding: 0.5em;
+  display: inline-block;
+}
+
+.congratStars {
+  list-style: none;
+  display: inline-block;
+  color: gold;
+  font-size: 36px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
 }
 
 .con {
   margin-top: 30px;
-  border: 10px, groove, gold;
   border-radius: 8px;
 }
 
 .shine {
- animation-name: diamond;
- animation-duration: 4s;
- animation-iteration-count: infinite;
- animation-direction: alternate;
- animation-timing-function: linear;
- -webkit-animation-name: diamond;
- -webkit-animation-duration: 4s;
- -webkit-animation-iteration-count: infinite;
- -webkit-animation-direction: alternate;
- -webkit-animation-timing-function: linear;
+  animation-name: diamond;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  -webkit-animation-name: diamond;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
 }
 
 @keyframes diamond {
-    0%   {color: yellow; }
-    25%  {color: #ffff33;}
-    50%  {color: #ffff66;}
-    100% {color: #ffff80;}
-    from {transform: rotate(-45deg);}
-    to   {transform: rotate(45deg);}
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: #ffff33;
+  }
+  50% {
+    color: #ffff66;
+  }
+  100% {
+    color: #ffff80;
+  }
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
 }
 
 @-webkit-keyframes diamond {
-    0%   {color: yellow; }
-    25%  {color: #ffff33;}
-    50%  {color: #ffff66;}
-    100% {color: #ffff80;}
-    from {-webkit-transform: rotate(-45deg);}
-    to   {-webkit-transform: rotate(45deg);}
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: #ffff33;
+  }
+  50% {
+    color: #ffff66;
+  }
+  100% {
+    color: #ffff80;
+  }
+  from {
+    -webkit-transform: rotate(-45deg);
+  }
+  to {
+    -webkit-transform: rotate(45deg);
+  }
 }
 
 @keyframes bgr {
-    0%   {background-color: #99ccff;}
-    25%  {background-color: #80bfff ;}
-    50%  {background-color: #66b3ff ;}
-    100% {background-color: #4da6ff ;}
+  0% {
+    background-color: #99ccff;
+  }
+  25% {
+    background-color: #80bfff;
+  }
+  50% {
+    background-color: #66b3ff;
+  }
+  100% {
+    background-color: #4da6ff;
+  }
 }
 
 @-webkit-keyframes bgr {
-    0%   {background-color: #99ccff;}
-    25%  {background-color: #80bfff ;}
-    50%  {background-color: #66b3ff ;}
-    100% {background-color: #4da6ff ;}
+  0% {
+    background-color: #99ccff;
+  }
+  25% {
+    background-color: #80bfff;
+  }
+  50% {
+    background-color: #66b3ff;
+  }
+  100% {
+    background-color: #4da6ff;
+  }
+}
+
+
+@media screen and (min-width: 386px) and (max-width: 474px) {
+    .deck .card {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media screen and (min-width: 475px) and (max-width: 559px) {
+  h1 {
+    font-size: 1.6em;
+  }
+  .score-panel {
+    font-size: 1.5em;
+  }
+     .deck .card {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 560px) and (max-width: 659px) {
+  h1 {
+    font-size: 1.75em;
+  }
+  .score-panel {
+    font-size: 1.6em;
+  }
+      .deck .card {
+        height: 110px;
+        width: 110px;
+    }
+    .deck {
+      padding: 30px;
+}
+}
+
+@media screen and (min-width: 660px){
+  h1 {
+    font-size: 2em;
+  }
+  .score-panel {
+    font-size: 1.75em;
+  }
+
+  .deck {
+    height: auto;
+    padding: 36px;
+    min-height: 300px;
+  }
+  .deck .card {
+    width: 125px;
+    height: 125px;
+  }
+
+  .win-message {
+    font-size: 28px;
+    min-height: 740px;
+    padding: 32px;
+  }
+  .congratStars {
+    font-size: 36px;
+  }
+
+  .score-panel {
+    text-align: left;
+    width: 650px;
+    margin-bottom: 16px;
+  }
+  .score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+  }
+  .score-panel .stars li {
+    display: inline-block;
+    font-size: 36px;
+  }
+  .timer {
+    display: inline-block;
+    margin-left: 50px;
+  }
 }

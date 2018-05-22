@@ -1,7 +1,10 @@
+<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
+        <!--   <meta http-equiv="refresh" content="3" > -->
   <title>Matching Game</title>
   <meta name="description" content="">
   <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -86,18 +89,21 @@
     </ul>
   </div>
 
-    <section id="gg" class="win-message hidden ">
+    <section id="gg" class="win-message">
         <i onclick="startGame()" class="fa fa-repeat rpt"></i>
         <div class="con">
           <div class="mid"> </i> Congratulations! You won! </i>
           </div>
-      <!--   <p class="congrats"> Your stars: <span id="starsScore"> </span>
-      </p> -->
-          <div class="mid"> You made it in: <span class="bold"> <span id="mov"> </span> moves! </span>
+
+       <div class="mid"> You made it with: <span class="bold"> <span id="mov"> </span> moves! </span>
+       </div>
+       <div class="mid"> You made it in: <span class="bold"> <span id="minutes"> </span>
+              <span id="seconds"> </span>
+       </div>
+          <div class="mid">  You won: <span class="congratStars" id="sta"> </span> </div>
+        <div class="mid"> <i class="fa fa-diamond shine"></i> You are brilliant! <i class="fa fa-diamond shine"></i> <span ui="sta"> </span>
           </div>
-          <div class="mid"> <i class="fa fa-diamond shine"></i> You are brilliant!
-                          <i class="fa fa-diamond shine"></i> <span ui="sta"> </span>
-          </div>
+
         </div>
     </section>
 
