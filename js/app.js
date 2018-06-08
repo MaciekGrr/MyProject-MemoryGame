@@ -107,7 +107,7 @@ function pushMatchedCards() {
 
 // you count how many cards exactly "match"
 function matchCounter() {
-   if (matchedCards.length === 1) {  // set length to 1 to test, set to 8 to play
+   if (matchedCards.length === 8) {  // set length to 1 to test, set to 8 to play
    congrats(); }
 };
 
