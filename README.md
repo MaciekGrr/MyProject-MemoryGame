@@ -34,7 +34,6 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 The dependencies used in my project:
 
-bootstrap https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+bootstrap font-awesome https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
 fonts.googleapis https://fonts.googleapis.com/css?family=Coda
-font-awesome
 jquery http://code.jquery.com/jquery-3.3.1.js
