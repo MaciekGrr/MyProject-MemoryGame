@@ -4,7 +4,7 @@
 
 * [Description](#description)
 * [Instructions](#instructions)
-* [How To Install](#installation)
+* [How To Install](#how)
 * [Contributing](#contributing)
 * [Dependencies](#dependencies)
 
@@ -22,7 +22,7 @@ The app's functionality has a basic Memory Game functionality, so it opens a car
 Additional functionality is: Moves counter (1 move = 1 display of the 2 cards), Timer and Stars counter.
 Upon matching all the cards, congratulation screen with your results pops up.
 
-## How To Instal
+## How To Install
 
 To start playing, download whole content of this repo on your device and open `index.html` and start playing!
 
@@ -36,7 +36,8 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 The dependencies used in my project:
 
-bootstrap https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
-fonts.googleapis https://fonts.googleapis.com/css?family=Coda
-font-awesome
-jquery http://code.jquery.com/jquery-3.3.1.js
+*bootstrap & *font-awesome https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+
+*fonts.googleapis https://fonts.googleapis.com/css?family=Coda
+
+*jquery http://code.jquery.com/jquery-3.3.1.js
