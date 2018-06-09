@@ -194,6 +194,7 @@ h1 {
 }
 
 .shine {
+  font-size: 36px;
   animation-name: diamond;
   animation-duration: 3s;
   animation-iteration-count: infinite;
