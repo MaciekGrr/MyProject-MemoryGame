@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-*.[How To Play](#howto)
+* [How To Play](#howto)
 * [Description](#description)
 * [Instructions](#instructions)
 * [How To Install](#how)
