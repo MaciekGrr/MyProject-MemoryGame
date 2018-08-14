@@ -2,11 +2,17 @@
 
 ## Table of Contents
 
+*.[How To Play](#howto)
 * [Description](#description)
 * [Instructions](#instructions)
 * [How To Install](#how)
 * [Contributing](#contributing)
 * [Dependencies](#dependencies)
+
+## How to play
+
+Just click his link and enjoy!
+https://maciekgrr.github.io/MyProject-MemoryGame/
 
 
 ## Description
@@ -24,7 +30,7 @@ Upon matching all the cards, congratulation screen with your results pops up.
 
 ## How To Install
 
-To start playing, download whole content of this repo on your device and open `index.html` and start playing!
+Download whole content of this repo on your device and open `index.html` and start playing!
 
 ## Contributing
 
